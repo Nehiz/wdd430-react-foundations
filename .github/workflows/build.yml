@@ -2,9 +2,9 @@ name: Build Next.js (subdirectory)
 
 on:
   push:
-    branches: [ main, feat/react-foundations ]
+    branches: [main, feat/react-foundations]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
@@ -15,7 +15,37 @@ jobs:
       - name: Use Node.js 18
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: "18"
+
+      - name: Install dependencies
+        working-directory: my-react-foundation
+        run: npm ci
+
+      - name: Build
+        working-directory: my-react-foundation
+        run: npm run build
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: next-build
+          path: my-react-foundation/.next
+
+      - name: Deploy to Vercel (if configured)
+        if: ${{ secrets.VERCEL_TOKEN != '' }}
+        uses: amondnet/vercel-action@v20
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          # pass --prod for pushes to main, preview otherwise
+          vercel-args: ${{ github.ref == 'refs/heads/main' && '--prod' || '' }}
+          working-directory: my-react-foundation
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+      - name: Use Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
 
       - name: Install dependencies
         working-directory: my-react-foundation
