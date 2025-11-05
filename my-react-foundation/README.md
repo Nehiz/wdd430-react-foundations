@@ -23,7 +23,7 @@ This repository contains my work from the Next.js React Foundations tutorial as 
 
 ### Week 1 (Chapters 1-7)
 
-- Chapter 1: About React and Next.js
+- Chapter 1: About React and Next.js | Completed
 - Chapter 2: Rendering User Interfaces (UI)
 - Chapter 3: Updating UI with JavaScript
 - Chapter 4: Getting Started with React
@@ -58,7 +58,7 @@ npm --version   # v8.0.0 or higher
 Clone the repository:
 
 ```powershell
-git clone https://github.com/yourusername/wdd430-react-foundations.git
+git clone https://github.com/Nehiz/wdd430-react-foundations.git
 cd wdd430-react-foundations
 ```
 
@@ -80,18 +80,21 @@ Open http://localhost:3000 in your browser.
 ## Project Structure
 
 ```
-wdd430-react-foundations/
-├── NOTES.md
-├── chapters/
-├── my-react-foundation/    # Next.js app scaffold
-│   ├── README.md
-│   ├── package.json
-│   ├── public/
-│   └── src/ (app or pages depending on scaffold)
-├── package.json (optional)
-└── [other repo-level files]
+## Project Structure
 ```
 
+wdd430-react-foundations/
+├── chapters/          # Tutorial chapter exercises
+├── src/               # Main application source code
+│   └── app/           # Next.js app directory
+├── public/            # Static assets
+├── node_modules/      # Dependencies (not committed)
+├── README.md          # Project documentation
+├── NOTES.md           # Personal notes
+├── package.json       # Project dependencies
+└── next.config.mjs    # Next.js configuration
+
+```
 ## Key Concepts Learned
 
 ### DOM (Document Object Model)
@@ -122,16 +125,16 @@ A syntax extension for JavaScript that allows writing HTML-like code in JavaScri
 ## Progress Tracking
 
 | Chapter | Title | Status | Completion Date |
-|---|---|---|---|
-| 1 | About React and Next.js | ⏳ In Progress | - |
-| 2 | Rendering User Interfaces | ⏳ Pending | - |
-| 3 | Updating UI with JavaScript | ⏳ Pending | - |
-| 4 | Getting Started with React | ⏳ Pending | - |
-| 5 | Building UI with Components | ⏳ Pending | - |
-| 6 | Displaying Data with Props | ⏳ Pending | - |
-| 7 | Adding Interactivity with State | ⏳ Pending | - |
 
-Legend: ✅ Complete | ⏳ In Progress | ⏳ Pending
+| 1 | About React and Next.js | Completed | Nov. 5th, 2025 |
+| 2 | Rendering User Interfaces | Pending | - |
+| 3 | Updating UI with JavaScript | Pending | - |
+| 4 | Getting Started with React | Pending | - |
+| 5 | Building UI with Components | Pending | - |
+| 6 | Displaying Data with Props | Pending | - |
+| 7 | Adding Interactivity with State | Pending | - |
+
+
 
 ## Reflection
 
@@ -139,15 +142,15 @@ Legend: ✅ Complete | ⏳ In Progress | ⏳ Pending
 
 ## Author
 
-Your Name — BYU WDD430 Student — [Your Email]
+Nehikhare Efehi — BYU WDD430 Student — enehikhare@byui.edu
 
 ## License
 
 This project is created for educational purposes as part of BYU coursework.
 
-## Notes on project structure (recommendation)
+## Notes on project structure 
 
-- Current setup keeps the Next.js app in `my-react-foundation/` inside the repository. This is a good approach when you plan to store course notes, multiple small projects, or documentation at the repo root.
+- My current setup keeps the Next.js app in `my-react-foundation/` inside the repository. This is a good approach because I plan to store course notes, multiple small projects, or documentation at the repo root.
 - If you prefer the Next.js app to be the repository root (simpler for deployment and typical for single-project repos), you can move the app files up to the repo root. If you do that, remove any extra top-level `package-lock.json` (we observed multiple lockfiles earlier) to avoid Next.js workspace warnings.
 
 Commands to move the app to repo root (optional):

@@ -1,6 +1,6 @@
 # React Foundations — Notes (Chapters 1–7)
 
-This file collects quick notes and the answers to the "Check Your Understanding" questions for the React Foundations (Next.js) tutorial. Keep this in the repository so you can share progress and review later.
+This file collects quick notes and the answers to the "Check Your Understanding" questions for the React Foundations (Next.js) tutorial.
 
 ## Chapter checklist
 - [ ] 1 — About React and Next.js
@@ -50,7 +50,7 @@ Key Distinction:
 - Framework (Next.js): Provides structure, conventions, and additional features on top of React
 
 
-## Quick answers — Check Your Understanding
+## Quick answers to the "Check Your Understanding" questions
 
 1) What is the DOM?
 
@@ -137,21 +137,3 @@ jobs:
 ```
 
 	- To deploy to Vercel from GitHub Actions, use the official Vercel action and set `VERCEL_TOKEN` as a repository secret. Alternatively, configure Vercel through its GitHub integration and set the project root in the Vercel dashboard.
-
-## Recommended chapter-folder approach
-
-Recommended Approach:
-
-Use your `chapters/` folder to organize each tutorial chapter as a directory when you expect to include notes, code snippets, and small experiments per chapter:
-
-```
-chapters/
-├── chapter-01/
-│   ├── notes.md
-│   └── examples/
-├── chapter-02/
-├── chapter-03/
-└── ...
-```
-
-Or keep your main tutorial code in the `src/` folder and use `chapters/` for notes and experiments. Both are valid — choose the one that matches how much code you plan to keep per chapter. For most coursework, using `chapters/` directories with `notes.md` and an `examples/` subfolder is flexible and easy to review.
