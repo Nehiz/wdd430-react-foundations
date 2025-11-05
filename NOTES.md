@@ -11,7 +11,44 @@ This file collects quick notes and the answers to the "Check Your Understanding"
 - [ ] 6 — Displaying Data with Props
 - [ ] 7 — Adding Interactivity with State
 
-Complete each box as you work through the tutorial and add short notes under each chapter heading (or create a `chapters/` folder if you prefer one file per chapter).
+## Chapter 1 Summary - Key Takeaways
+
+Here's what I've learned:
+
+Main Concepts:
+
+- React = JavaScript library for building interactive UIs
+
+	- Provides helpful functions/APIs
+	- Relatively unopinionated about application architecture
+	- Focuses primarily on the UI layer
+
+
+- Next.js = React framework that adds structure and features
+
+	- Handles tooling and configuration
+	- Provides solutions for routing, data fetching, caching
+	- Optimizes both developer and user experience
+
+
+Building Blocks of Web Applications:
+
+- User Interface
+- Routing
+- Data Fetching
+- Rendering
+- Integrations
+- Infrastructure
+- Performance
+- Scalability
+- Developer Experience
+
+
+Key Distinction:
+
+- Library (React): Gives you tools but you decide how to use them
+- Framework (Next.js): Provides structure, conventions, and additional features on top of React
+
 
 ## Quick answers — Check Your Understanding
 
@@ -52,15 +89,69 @@ Build for production:
 npm run build
 ```
 
-## Chapter folders — do you need them?
-
-- Not required. You can keep notes in this single `NOTES.md` at the repo root or inside the `my-react-foundation` folder. Creating a `chapters/` directory with one file per chapter (for example `chapters/01-about-react.md`) can make review and grading easier and keeps notes organized.
-- Recommendation: create a `chapters/` folder if you plan to add code examples, screenshots, or multiple notes per chapter. Otherwise `NOTES.md` is fine.
-
-## Next steps (suggested)
-- Finish and check-off chapters 1–7 in this file.
-- Add small demo components under `src/components/` that illustrate props and state (e.g., a Counter component with `useState`).
-- When ready, push the `feat/react-foundations` branch and open a PR to `main`.
-
----
 Created: 2025-11-05 — initial notes and answers for Chapters 1–7
+
+## Deployment
+
+Two easy options for deploying this repository's Next.js app which lives in `my-react-foundation/`:
+
+- Vercel (recommended for Next.js)
+	- When creating the project in Vercel, set the "Root Directory" to `my-react-foundation` so Vercel runs install/build from that folder.
+	- If you use the Vercel CLI or GitHub integration, provide a Vercel token and set the project/organization in the dashboard.
+
+- GitHub Actions (CI) — build artifact example
+	- Add a workflow that builds the Next app from the `my-react-foundation/` directory. Below is a simple example that runs on push and uploads the `.next` build output as an artifact (you can replace the upload step with a deploy action for your provider):
+
+```yaml
+name: Build Next.js (subdirectory)
+on:
+	push:
+		branches: [ main, feat/react-foundations ]
+	pull_request:
+		branches: [ main ]
+
+jobs:
+	build:
+		runs-on: ubuntu-latest
+		steps:
+			- uses: actions/checkout@v4
+
+			- name: Use Node.js 18
+				uses: actions/setup-node@v4
+				with:
+					node-version: '18'
+
+			- name: Install dependencies
+				working-directory: my-react-foundation
+				run: npm ci
+
+			- name: Build
+				working-directory: my-react-foundation
+				run: npm run build
+
+			- name: Upload build artifact
+				uses: actions/upload-artifact@v4
+				with:
+					name: next-build
+					path: my-react-foundation/.next
+```
+
+	- To deploy to Vercel from GitHub Actions, use the official Vercel action and set `VERCEL_TOKEN` as a repository secret. Alternatively, configure Vercel through its GitHub integration and set the project root in the Vercel dashboard.
+
+## Recommended chapter-folder approach
+
+Recommended Approach:
+
+Use your `chapters/` folder to organize each tutorial chapter as a directory when you expect to include notes, code snippets, and small experiments per chapter:
+
+```
+chapters/
+├── chapter-01/
+│   ├── notes.md
+│   └── examples/
+├── chapter-02/
+├── chapter-03/
+└── ...
+```
+
+Or keep your main tutorial code in the `src/` folder and use `chapters/` for notes and experiments. Both are valid — choose the one that matches how much code you plan to keep per chapter. For most coursework, using `chapters/` directories with `notes.md` and an `examples/` subfolder is flexible and easy to review.

@@ -1,0 +1,32 @@
+name: Build Next.js (subdirectory)
+
+on:
+  push:
+    branches: [ main, feat/react-foundations ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        working-directory: my-react-foundation
+        run: npm ci
+
+      - name: Build
+        working-directory: my-react-foundation
+        run: npm run build
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: next-build
+          path: my-react-foundation/.next
