@@ -2,51 +2,13 @@
 
 Summary
 
-- I learned that the DOM (Document Object Model) is an object representation of HTML elements and acts as a bridge between my code and the user interface. It has a tree-like structure with parent/child relationships.
+- I learned that the DOM is the browser's in-memory representation of HTML. React uses a virtual representation and reconciles changes to update the DOM efficiently.
+- I learned about different rendering strategies: static (SSG), server-side (SSR), and client-side rendering, and when each is appropriate.
 
-- I learned how browsers render pages: Server → HTML file → Browser → DOM → User interface.
+What I need to remember
 
-Key Concepts
-
-1. The DOM (Document Object Model)
-
-- What it is: An object representation of HTML elements.
-- Purpose: Acts as a bridge between my code and the user interface.
-- Structure: A tree-like structure with parent and child relationships.
-
-2. How Browsers Render Pages
-
-- Flow: Server → HTML file → Browser → DOM → User Interface.
-
-3. DOM Manipulation
-
-With JavaScript and DOM methods I can:
-
-- ✅ Listen to user events (clicks, typing, etc.)
-- ✅ Select specific elements
-- ✅ Add new elements
-- ✅ Update existing elements
-- ✅ Delete elements
-- ✅ Change styles and content
-
-Visual Analogy
-
-Think of the DOM like a family tree:
-
-<html> (grandparent)
-  └── <body> (parent)
-	  ├── <header> (child)
-	  │    └── <h1> (grandchild)
-	  └── <main> (child)
-		  └── <p> (grandchild)
-
-Check Your Understanding
-
-Before moving to Chapter 3, I should be able to answer:
-
-- What is the DOM?
-- Why is the DOM important for web development?
-- What kinds of things can I do with DOM manipulation?
+- Minimize direct DOM manipulation in React; instead, update component state/props.
+- Next.js provides multiple rendering modes depending on the page and data needs.
 
 Checklist
 
