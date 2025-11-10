@@ -8,7 +8,7 @@ This file collects quick notes and the answers to the "Check Your Understanding"
 - [x] 3 — Updating UI with JavaScript
 - [x] 4 — Getting Started with React
 - [x] 5 — Building UI with Components
-- [ ] 6 — Displaying Data with Props
+ - [x] 6 — Displaying Data with Props
 - [ ] 7 — Adding Interactivity with State
 
 ## Chapter 1 Summary - Key Takeaways
@@ -90,7 +90,7 @@ npm run build
 ```
 
 Created: 2025-11-05 — initial notes and answers for Chapters 1–7
-Updated: 2025-11-10 — Chapters 3, 4, and 5 marked complete; Chapter 5 demo added at `chapters/chapter-05/index.html`.
+Updated: 2025-11-10 — Chapters 3, 4, 5, and 6 marked complete; Chapter 5 demo added at `chapters/chapter-05/index.html` and Chapter 6 demo at `chapters/chapter-06/index.html`.
 
 ## Deployment
 
