@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Chapter 6 — Displaying Data with Props</title>
+    <style>
+      body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; padding: 24px; }
+      .app { max-width: 780px; margin: 0 auto; }
+      header, footer { background:#f6f7f9; padding:12px 16px; border-radius:6px }
+      ul { padding-left: 20px }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <h1>Chapter 6 — Displaying Data with Props</h1>
+      <p>This demo shows how to pass props to components, use JavaScript expressions in JSX, render lists with <code>.map()</code>, and add the <code>key</code> prop.</p>
+
+      <div id="app"></div>
+
+      <!-- UMD React + Babel (teaching/demo only) -->
+      <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+      <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+      <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+      <script type="text/babel">
+        const mount = document.getElementById('app');
+
+        // Header component accepts a title prop and uses a default when absent
+        function Header({ title }) {
+          return <header><h2>{title ? title : 'Default Title'}</h2></header>;
+        }
+
+        // Greeting component demonstrates passing multiple props and using expressions
+        function Greeting({ name, isMorning }) {
+          return <p>{`Good ${isMorning ? 'morning' : 'evening'}, ${name}!`}</p>;
+        }
+
+        // HomePage demonstrates passing props and rendering lists with keys
+        function HomePage() {
+          const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
+
+          return (
+            <div>
+              <Header title="Develop. Preview. Ship." />
+
+              <section>
+                <Greeting name="Ada" isMorning={true} />
+                <Greeting name="Grace" isMorning={false} />
+              </section>
+
+              <section>
+                <h3>Famous Computer Scientists</h3>
+                <ul>
+                  {names.map((name) => (
+                    <li key={name}>{name}</li>
+                  ))}
+                </ul>
+              </section>
+            </div>
+          );
+        }
+
+        const root = ReactDOM.createRoot(mount);
+        root.render(<HomePage />);
+      </script>
+
+      <hr />
+      <p style="font-size:0.9em;color:#666">File: <code>chapters/chapter-06/index.html</code></p>
+    </div>
+  </body>
+</html>
