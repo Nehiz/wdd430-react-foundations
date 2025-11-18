@@ -33,7 +33,7 @@ npm install
 npm run dev
 ```
 
-Visit http://localhost:3000 when the dev server is running.
+Visit <http://localhost:3000> when the dev server is running.
 
 ## Notes
 

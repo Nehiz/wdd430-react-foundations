@@ -3,12 +3,13 @@
 This file collects quick notes and the answers to the "Check Your Understanding" questions for the React Foundations (Next.js) tutorial.
 
 ## Chapter checklist
+
 - [ ] 1 — About React and Next.js
 - [ ] 2 — Rendering User Interfaces (UI)
 - [x] 3 — Updating UI with JavaScript
 - [x] 4 — Getting Started with React
 - [x] 5 — Building UI with Components
- - [x] 6 — Displaying Data with Props
+- [x] 6 — Displaying Data with Props
 - [ ] 7 — Adding Interactivity with State
 
 ## Chapter 1 Summary - Key Takeaways
@@ -19,17 +20,15 @@ Main Concepts:
 
 - React = JavaScript library for building interactive UIs
 
-	- Provides helpful functions/APIs
-	- Relatively unopinionated about application architecture
-	- Focuses primarily on the UI layer
-
+ 	- Provides helpful functions/APIs
+ 	- Relatively unopinionated about application architecture
+ 	- Focuses primarily on the UI layer
 
 - Next.js = React framework that adds structure and features
 
-	- Handles tooling and configuration
-	- Provides solutions for routing, data fetching, caching
-	- Optimizes both developer and user experience
-
+ 	- Handles tooling and configuration
+ 	- Provides solutions for routing, data fetching, caching
+ 	- Optimizes both developer and user experience
 
 Building Blocks of Web Applications:
 
@@ -43,12 +42,10 @@ Building Blocks of Web Applications:
 - Scalability
 - Developer Experience
 
-
 Key Distinction:
 
 - Library (React): Gives you tools but you decide how to use them
 - Framework (Next.js): Provides structure, conventions, and additional features on top of React
-
 
 ## Quick answers to the "Check Your Understanding" questions
 
@@ -97,44 +94,44 @@ Updated: 2025-11-10 — Chapters 3, 4, 5, and 6 marked complete; Chapter 5 demo 
 Two easy options for deploying this repository's Next.js app which lives in `my-react-foundation/`:
 
 - Vercel (recommended for Next.js)
-	- When creating the project in Vercel, set the "Root Directory" to `my-react-foundation` so Vercel runs install/build from that folder.
-	- If you use the Vercel CLI or GitHub integration, provide a Vercel token and set the project/organization in the dashboard.
+ 	- When creating the project in Vercel, set the "Root Directory" to `my-react-foundation` so Vercel runs install/build from that folder.
+ 	- If you use the Vercel CLI or GitHub integration, provide a Vercel token and set the project/organization in the dashboard.
 
 - GitHub Actions (CI) — build artifact example
-	- Add a workflow that builds the Next app from the `my-react-foundation/` directory. Below is a simple example that runs on push and uploads the `.next` build output as an artifact (you can replace the upload step with a deploy action for your provider):
+ 	- Add a workflow that builds the Next app from the `my-react-foundation/` directory. Below is a simple example that runs on push and uploads the `.next` build output as an artifact (you can replace the upload step with a deploy action for your provider):
 
 ```yaml
 name: Build Next.js (subdirectory)
 on:
-	push:
-		branches: [ main, feat/react-foundations ]
-	pull_request:
-		branches: [ main ]
+ push:
+  branches: [ main, feat/react-foundations ]
+ pull_request:
+  branches: [ main ]
 
 jobs:
-	build:
-		runs-on: ubuntu-latest
-		steps:
-			- uses: actions/checkout@v4
+ build:
+  runs-on: ubuntu-latest
+  steps:
+   - uses: actions/checkout@v4
 
-			- name: Use Node.js 18
-				uses: actions/setup-node@v4
-				with:
-					node-version: '18'
+   - name: Use Node.js 18
+    uses: actions/setup-node@v4
+    with:
+     node-version: '18'
 
-			- name: Install dependencies
-				working-directory: my-react-foundation
-				run: npm ci
+   - name: Install dependencies
+    working-directory: my-react-foundation
+    run: npm ci
 
-			- name: Build
-				working-directory: my-react-foundation
-				run: npm run build
+   - name: Build
+    working-directory: my-react-foundation
+    run: npm run build
 
-			- name: Upload build artifact
-				uses: actions/upload-artifact@v4
-				with:
-					name: next-build
-					path: my-react-foundation/.next
+   - name: Upload build artifact
+    uses: actions/upload-artifact@v4
+    with:
+     name: next-build
+     path: my-react-foundation/.next
 ```
 
-	- To deploy to Vercel from GitHub Actions, use the official Vercel action and set `VERCEL_TOKEN` as a repository secret. Alternatively, configure Vercel through its GitHub integration and set the project root in the Vercel dashboard.
+ - To deploy to Vercel from GitHub Actions, use the official Vercel action and set `VERCEL_TOKEN` as a repository secret. Alternatively, configure Vercel through its GitHub integration and set the project root in the Vercel dashboard.

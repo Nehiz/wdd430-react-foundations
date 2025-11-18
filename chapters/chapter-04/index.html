@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Chapter 4 — Getting Started with React</title>
+    <style>body{font-family:system-ui,Segoe UI,Roboto,Arial;padding:20px;max-width:780px;margin:auto}pre{background:#111;color:#eee;padding:12px;border-radius:6px;overflow:auto}</style>
+  </head>
+  <body>
+    <h1>Chapter 4 — Getting Started with React</h1>
+    <p>This demo shows adding React via UMD, using JSX with Babel standalone, and a couple of common JSX mistakes to learn from.</p>
+
+    <div id="app"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      const mount = document.getElementById('app');
+
+      // 1) Simple render using JSX
+      function Simple() {
+        return <h2>Welcome — React is mounted!</h2>;
+      }
+
+      // 2) Common mistake: lowercase component name will be treated as DOM tag
+      function lowercase() {
+        return <p>This will error if used as a component (lowercase names are DOM tags)</p>;
+      }
+
+      // 3) Correct usage: capitalized component
+      function CorrectName() {
+        return (
+          <div>
+            <Simple />
+            <p style={{color:'#555'}}>This component is capitalized and works.</p>
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(mount);
+      // Try rendering the top-level component
+      root.render(<CorrectName />);
+    </script>
+
+    <section style="margin-top:18px">
+      <h3>Try it</h3>
+      <ol>
+        <li>Change <code>CorrectName</code> to <code>correctName</code> and attempt to render <code>&lt;correctName /&gt;</code> — see console errors.</li>
+        <li>Try to render a function directly (e.g. <code>root.render(Simple)</code>) and observe the error; you must render an element (<code>&lt;Simple /&gt;</code>).</li>
+      </ol>
+    </section>
+
+    <p style="font-size:0.9em;color:#666">File: <code>chapters/chapter-04/index.html</code></p>
+  </body>
+</html>
