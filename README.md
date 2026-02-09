@@ -1,3 +1,9 @@
+# ⚠️ Archived - Moved to Monorepo
+
+This project is now part of the [BYU-Pathway Coursework](https://github.com/Nehiz/byu-pathway-coursework) monorepo.
+
+
+
 # React Foundations — Workshop Notes
 
 This repository contains notes and small demos for the *React Foundations* tutorial. The Next.js app is in `my-react-foundation/` and the per-chapter examples and static demos are under `chapters/`.
